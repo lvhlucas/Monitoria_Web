@@ -22,5 +22,5 @@ urlpatterns = [
     path('subsistema/', include('subsistema.urls')),
     path('admin/', admin.site.urls),
     path('subsistema/login/', views.login, name='login'),    
-    path('subsistema/logout/', views.logout, name='logout'),    
+    path('subsistema/logout/', views.logout, name='logout', kwargs={'next_page': '/'}),
 ]
