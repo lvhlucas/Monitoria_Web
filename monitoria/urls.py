@@ -21,5 +21,6 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('subsistema/', include('subsistema.urls')),
     path('admin/', admin.site.urls),
-    url('subsistema/login/', views.login, name='login'),    
+    path('subsistema/login/', views.login, name='login'),    
+    path('subsistema/logout/', views.logout, name='logout'),    
 ]
