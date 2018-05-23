@@ -1,9 +1,9 @@
 from django import forms
 
-from .models import PedidoMonitor
+from .models import AlunoPedeMonitor
 
-class PedidoMonitorForm(forms.ModelForm):
+class AlunoPedeMonitorForm(forms.ModelForm):
 
     class Meta:
-        model = PedidoMonitor
+        model = AlunoPedeMonitor
         fields = ('comentario', 'materia')
