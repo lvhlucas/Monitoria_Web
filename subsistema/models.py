@@ -11,9 +11,8 @@ class Materia(models.Model):
     def __str__(self):
         return self.nomeMateria
     
-class Pessoa(models.Model):
-    autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    autor = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True,)
+class Pessoa(models.Model):    
+    autor = models.OneToOneField('auth.user',on_delete=models.CASCADE,primary_key=True,)
     class Meta:
         abstract = True
         
@@ -21,7 +20,7 @@ class Aluno(Pessoa):
     semestreEntrada=models.CharField(max_length=5)
     curso=models.ForeignKey(Curso, on_delete=models.CASCADE)
     def __str__(self):
-        return self.nomePessoa
+        return self.autor.first_name+' '+self.autor.last_name
     
 class AlunoPedeMonitor(models.Model):
     comentario=models.TextField()
