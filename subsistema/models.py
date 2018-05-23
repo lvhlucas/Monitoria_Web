@@ -12,8 +12,8 @@ class Materia(models.Model):
         return self.nomeMateria
     
 class Pessoa(models.Model):
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    
+    autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    autor = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True,)
     class Meta:
         abstract = True
         
@@ -31,11 +31,13 @@ class EstadoMonitor(models.Model):
     nomeEstado=models.CharField(max_length=9)
     def __str__(self):
         return self.nomeEstado
+    
 class RegistroAtendimento(models.Model):
     dia=models.DateTimeField('date published')
     horasMinistradas=models.IntegerField(default=0)
     linkListaPresenca=models.CharField(max_length=200)
     qtdAlunosPresentes=models.IntegerField(default=0)
+    
 class Monitor(models.Model):
     horarioAtendimento=models.CharField(max_length=200)
     estado = models.ForeignKey(EstadoMonitor, on_delete=models.CASCADE)        
