@@ -1,28 +1,13 @@
-<html>
-<body>
-<h1>Cadastro Aluno</h1>
+{% extends 'subsistema/base.html' %}
 
+{% block content %}
 <form action="{% url 'subsistema:alunoCadastra'%}" method="post">
-{% csrf_token %}
-    Usuário:<br>
-    <input type="text" name="usuario"><br>
-    Senha:<br>
-    <input type="password" name="senha"><br>
-    Nome:<br>
-    <input type="text" name="nome"><br>
-    Semestre de entrada:<br>
-    <input type="text" name="semestre"><br>
-    Email:<br>
-    <input type="text" name="email"><br>
-    Curso:<br>
-    {% for UmCurso in curso %}       
-        <input type="radio" name="UmCurso" id="UmCurso{{ forloop.counter }}" value="{{ UmCurso.id }}" />
-        <label for="UmCurso{{ forloop.counter }}">{{ UmCurso.nomeCurso }}</label><br />
-    {% endfor %}
-<input type="submit" value="Cadastrar" />
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Salvar</button>    
 </form>
+<a href="{% url 'subsistema:login' %}" class="btn btn-default">Voltar</a>    
+{% endblock %}
 
 
-</body>
-</html>
 
