@@ -1,0 +1,29 @@
+language: python
+python: 
+  - versão
+
+addons:
+  apt:
+  sonarqube:
+    organization:
+    taken:
+      secure:
+      
+branches:
+  only:
+    -master
+    -desenvolvimento
+    
+install:
+  -pip install -r requiriments.txt
+  
+before_script:
+  -export JAVA_HOME
+  
+script:
+  -python manage.py behave
+  -cd..
+  -cd..
+  -sonar-scanner
+  
+deploy:  
