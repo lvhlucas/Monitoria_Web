@@ -1,7 +1,6 @@
 language: python
 python: 
-  - versão
-
+  - 3.6.5
 addons:
   apt:
   sonarqube:
