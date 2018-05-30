@@ -4,9 +4,9 @@ python:
 addons:
   apt:
   sonarqube:
-    organization:
+    organization: "lvh_corporation"
     taken:
-      secure:
+      secure:"$SENHA_SONNAR"
       
 branches:
   only:
