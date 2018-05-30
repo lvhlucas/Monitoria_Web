@@ -13,6 +13,9 @@ branches:
     -master
     -desenvolvimento
     
+notifications:
+  slack: bsi-ifserra:zHx5D7zlr2t7MxbRzI5QZ74e  
+    
 install:
   -pip install -r requiriments.txt
   
