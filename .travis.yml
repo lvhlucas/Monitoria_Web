@@ -19,9 +19,6 @@ notifications:
 install:
   -pip install -r requiriments.txt
   
-before_script:
-  -export JAVA_HOME
-  
 script:
   -python manage.py behave
   -cd..
