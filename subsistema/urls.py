@@ -6,5 +6,6 @@ from . import views
 app_name = 'subsistema'
 urlpatterns = [                  
     path('cadastrar/', views.alunoCadastra, name='alunoCadastra'),       
-    path('alunopedemonitor/', views.AlunoPedeMonitor, name='AlunoPedeMonitor'),       
+    path('alunopedemonitor/', views.AlunoPedeMonitor, name='AlunoPedeMonitor'),   
+    path('home/',views.alunoHome,name='alunoHome'),    
 ]

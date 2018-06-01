@@ -1,0 +1,15 @@
+{% extends "subsistema/base.html" %}
+
+{% block title %}Cadastrar Aluno{% endblock %}
+
+{% block content %}
+  <h2>Cadastrar novo aluno</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Cadastrar</button>
+  </form>
+  <a href="{% url 'login' %}" class="btn btn-default">Voltar</a>
+{% endblock %}
+
+

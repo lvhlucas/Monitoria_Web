@@ -1,5 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
+@receiver(post_save, sender=User)
+def update_user_Aluno(sender, instance, created, **kwargs):
+    if created:
+        Aluno.objects.create(user=instance)
+    instance.aluno.save()
+    
 class Curso(models.Model):
     nomeCurso = models.CharField(max_length=50) 
     def __str__(self):
@@ -10,17 +19,13 @@ class Materia(models.Model):
     nomeMateria = models.CharField(max_length=50)
     def __str__(self):
         return self.nomeMateria
-    
-class Pessoa(models.Model):    
-    autor = models.OneToOneField('auth.user',on_delete=models.CASCADE,primary_key=True,)
-    class Meta:
-        abstract = True
         
-class Aluno(Pessoa):    
+class Aluno(models.Model):    
     semestreEntrada=models.CharField(max_length=5)
     curso=models.ForeignKey(Curso, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     def __str__(self):
-        return self.autor.first_name+' '+self.autor.last_name
+        return user
     
 class AlunoPedeMonitor(models.Model):
     comentario=models.TextField()

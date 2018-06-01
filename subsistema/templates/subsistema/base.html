@@ -11,9 +11,10 @@
         <div class="page-header">
             <h1>Monitoria</h1>
             {% if user.is_authenticated %}   
-                <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'subsistema:logout' %}">Log out</a>)</small></p>            
+                <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>            
+                <a href="{% url 'subsistema:alunoHome' %}" class="top-menu">Inicio</span></a>
             {% else %}
-                <a href="{% url 'subsistema:login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+                <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
             {% endif %}
             
         </div>
