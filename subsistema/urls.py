@@ -7,5 +7,7 @@ app_name = 'subsistema'
 urlpatterns = [                  
     path('cadastrar/', views.alunoCadastra, name='alunoCadastra'),       
     path('alunopedemonitor/', views.AlunoPedeMonitor, name='AlunoPedeMonitor'),   
-    path('home/',views.alunoHome,name='alunoHome'),    
+    path('home/',views.alunoHome,name='alunoHome'),
+    path('registroAtendimento/',views.alunoRegistraAtendimento,name='alunoRegistraAtendimento'),    
+    path('inscrever/',views.alunoInscreve,name='alunoInscreve'),
 ]

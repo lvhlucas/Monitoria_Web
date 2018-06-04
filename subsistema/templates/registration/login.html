@@ -9,7 +9,8 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Login</button>
+    <input type="submit" value="Login" class="btn btn-default" />
+    <input type="hidden" name="next" value="{{ next }}" />
   </form>
   <a href="{% url 'subsistema:alunoCadastra' %}" class="btn btn-default">Cadastrar</a>
 {% endblock %}
