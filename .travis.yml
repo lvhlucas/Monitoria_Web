@@ -1,12 +1,20 @@
 language: python
 python: 
   - 3.6.5
+jdk:
+  - oraclejdk8
+  
 addons:
-  apt:
+  apt:  
+    packages:
+      - oracle-java8-installer  
   sonarqube:
     organization: "lvh_corporation"
     token:
       secure:"$SENHA_SONNAR"
+
+before_script:
+  - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
       
 branches:
   only:
