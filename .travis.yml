@@ -5,7 +5,7 @@ addons:
   apt:
   sonarqube:
     organization: "lvh_corporation"
-    taken:
+    token:
       secure:"$SENHA_SONNAR"
       
 branches:
@@ -22,5 +22,3 @@ install:
 script:
   -python manage.py behave  
   -sonar-scanner
-  
-deploy:  
