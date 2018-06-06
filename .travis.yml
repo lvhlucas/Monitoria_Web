@@ -11,7 +11,7 @@ addons:
   sonarcloud:
     organization: "lvh_corporation"
     token:
-      secure: 97d4bd92802e51bb238349c93202a369eb85e90e
+      secure: $SONNAR_SENHA
 
 branches:
   only:
