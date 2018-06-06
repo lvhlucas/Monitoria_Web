@@ -7,6 +7,10 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
+  sonarqube:
+    organization: "lvh_corporation"
+    token:
+      secure:"$SENHA_SONNAR"
 
 branches:
   only:
@@ -20,5 +24,8 @@ before_script:
   - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
 script:
-  - python manage.py behave
-  
+ # - python manage.py behave
+   - sonar-scanner 
+
+notifications:
+  slack: bsi-ifserra:zHx5D7zlr2t7MxbRzI5QZ74e
