@@ -80,7 +80,7 @@ DATABASES = {
         'NAME':'monitoriaBD',
 		'USER':'postgres',
 		'PASSWORD':'123456',
-		'HOST':'127.0.0.1',
+		'HOST':'',
 		'PORT':'5432',
     }
 }
