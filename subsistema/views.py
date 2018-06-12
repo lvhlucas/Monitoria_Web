@@ -2,6 +2,7 @@ from django.shortcuts import  render
 from .forms import AlunoCadastraForm,AlunoRegistraAtendimentoForm,AlunoPedeMonitorForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User,Group
+from .models import Curso
 
 def is_authenticated(user):
     return user.is_authenticated    
@@ -21,17 +22,18 @@ def alunoCadastra(request):
             user = form.save()
             user.refresh_from_db() 
             user.save()
-            raw_password = form.cleaned_data.get('password1')            
+            my_group = Group.objects.get(name='aluno') 
+            my_group.user_set.add(user)
             return render(request,'subsistema/alunoHome.html')
     else:
         form = AlunoCadastraForm()
-    return render(request,'subsistema/alunoCadastra.html',{'curso':Curso.objects.all()})
+    return render(request,'subsistema/alunoCadastra.html',{'curso':Curso.objects.all(),'form':form})
  
 @user_passes_test(aluno_logado, login_url='/login/')
 def alunoHome(request):
     return render(request,'subsistema/alunoHome.html')
     
-@user_passes_test(aluno_logado, login_url='/login/') 
+#@user_passes_test(aluno_logado, login_url='/login/') 
 def AlunoPedeMonitor(request):
     if request.method == "POST":
         form = AlunoPedeMonitorForm(request.POST)
@@ -43,8 +45,7 @@ def AlunoPedeMonitor(request):
     return render(request, 'subsistema/AlunoPedeMonitor.html', {'form': form})
  
 @user_passes_test(monitor_logado, login_url='/login/') 
-def alunoRegistraAtendimento(request):
-    #verificar o form
+def alunoRegistraAtendimento(request):    
     if request.method == "POST":
         form = AlunoRegistraAtendimentoForm(request.POST)
         if form.is_valid():
