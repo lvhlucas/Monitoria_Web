@@ -33,7 +33,7 @@ def alunoCadastra(request):
 def alunoHome(request):
     return render(request,'subsistema/alunoHome.html')
     
-#@user_passes_test(aluno_logado, login_url='/login/') 
+@user_passes_test(aluno_logado, login_url='/login/') 
 def AlunoPedeMonitor(request):
     if request.method == "POST":
         form = AlunoPedeMonitorForm(request.POST)

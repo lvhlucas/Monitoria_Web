@@ -7,14 +7,12 @@ class AlunoPedeMonitorForm(forms.ModelForm):
     class Meta:
         model = AlunoPedeMonitor
         fields = ('comentario', 'materia','periodo')
-        
 
 class AlunoCadastraForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
     last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
     semestreEntrada=forms.CharField(max_length=5)
-    #curso = forms.
     
     class Meta:
         model = User
