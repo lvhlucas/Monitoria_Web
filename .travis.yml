@@ -19,7 +19,7 @@ branches:
   - desenvolvimento
 
 install:
-  - pip install -r requeriments.txt
+  - pip install -r requiriments.txt
 
 before_script:
   - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
