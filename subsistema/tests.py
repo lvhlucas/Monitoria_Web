@@ -5,6 +5,7 @@ from django.template.loader import render_to_string
 from django.contrib.auth.models import User,Group
 from .forms import AlunoCadastraForm,AlunoRegistraAtendimentoForm,AlunoPedeMonitorForm
 
+
 class AlunoPedeMonitorTest(TestCase):
     #test_user1 = User.objects.create_user(username='testuser1', password='12345')
     #test_user1.save()
