@@ -12,3 +12,6 @@ Faker==0.8.15
 factory-boy==2.11.1
 python-dateutil==2.7.3
 text-unidecode==1.2
+dj-database-url==0.5.0
+django-heroku==0.3.1
+whitenoise==3.3.1
