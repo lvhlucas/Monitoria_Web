@@ -1,9 +1,11 @@
 {% extends 'subsistema/base.html' %}
 
 {% block content %}
-    <h1>Em construção </p>
-    
+    <h1>Novo Atendimento</h1>
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="submit" value="Salvar" class="save btn btn-default">
+    </form>
+    <a href="{% url 'subsistema:aluno_home' %}" class="btn btn-default">Voltar</a>
 {% endblock %}
-
-
-<!-- disabled  -->

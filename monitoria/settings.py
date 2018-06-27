@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'monitoria.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'monitoriaBD',
-		'USER':'postgres',
-		'PASSWORD':'123456',
-		'HOST':'',
-		'PORT':'5432',
+        'NAME': 'monitoriaBD',
+        'USER': 'postgres',
+        'PASSWORD': '123456',
+        'HOST': '',
+        'PORT': '5432',
     }
 }
 

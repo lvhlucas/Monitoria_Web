@@ -23,7 +23,27 @@ class Aluno(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return 'Aluno:'+self.user.first_name+' '+self.user.last_name
+        return self.user.first_name+' '+self.user.last_name
+
+
+class Professor(models.Model):
+    estaNaComissao = models.CharField(max_length=1)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.first_name+' '+self.user.last_name
+
+
+class VagaMonitor(models.Model):
+    qtdInscritos = models.IntegerField(default=0)
+    semestreEntrada = models.IntegerField()
+    materias = models.ForeignKey(Materia, on_delete=models.CASCADE)
+    candidatos = models.ForeignKey(Aluno, on_delete=models.CASCADE)
+    professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
+    descricaoResultado = models.TextField()
+
+    def __str__(self):
+        return 'Vaga Monitoria:'+self.user.first_name+' '+self.user.last_name
 
 
 class AlunoPedeMonitor(models.Model):
@@ -43,11 +63,11 @@ class EstadoMonitor(models.Model):
 
 
 class RegistroAtendimento(models.Model):
-    dia = models.DateTimeField('date published')
+    dia = models.DateField('date published')
     horasMinistradas = models.IntegerField(default=0)
     linkListaPresenca = models.CharField(max_length=200)
     qtdAlunosPresentes = models.IntegerField(default=0)
-    responsavel = models.ForeignKey(Aluno, on_delete=models.CASCADE)
+    responsavel = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Monitor(models.Model):

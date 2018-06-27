@@ -5,7 +5,7 @@
     <form method="POST" class="post-form">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Salvar</button>
+        <input type="submit" name="submit" value="Salvar" class="save btn btn-default">
     </form>
-    <a href="{% url 'subsistema:alunoHome' %}" class="btn btn-default">Voltar</a>    
+    <a href="{% url 'subsistema:aluno_home' %}" class="btn btn-default">Voltar</a>
 {% endblock %}

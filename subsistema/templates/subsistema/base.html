@@ -12,7 +12,7 @@
             <h1>Monitoria</h1>
             {% if user.is_authenticated %}   
                 <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>            
-                <a href="{% url 'subsistema:alunoHome' %}" class="top-menu">Inicio</span></a>
+                <a href="{% url 'subsistema:aluno_home' %}" class="top-menu">Inicio</span></a>
             {% else %}
                 <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
             {% endif %}

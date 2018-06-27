@@ -1,6 +1,7 @@
 from behave import given, when, then
 from test.factories.user import UserFactory
 
+
 @given('an anonymous user')
 def step_impl(context):
     from django.contrib.auth.models import User
@@ -11,6 +12,7 @@ def step_impl(context):
 
     # Don't omit to call save() to insert object in database
     u.save()
+
 
 @when('I submit a valid login page')
 def step_impl(context):
@@ -25,13 +27,15 @@ def step_impl(context):
     br.find_element_by_name('password').send_keys('bar')
     br.find_element_by_name('submit').click()
 
-@then('I am redirected to the login success page')
+
+@then('I am redirected to the home page')
 def step_impl(context):
     br = context.browser
 
     # Checks success status
-    assert br.current_url.endswith('/login/success/')
+    assert br.current_url.endswith('/home/')
     assert br.find_element_by_id('main_title').text == "Login success"
+
 
 @when('I submit an invalid login page')
 def step_impl(context):
@@ -46,6 +50,7 @@ def step_impl(context):
     br.find_element_by_name('username').send_keys('foo')
     br.find_element_by_name('password').send_keys('bar-is-invalid')
     br.find_element_by_name('submit').click()
+
 
 @then('I am redirected to the login fail page')
 def step_impl(context):
