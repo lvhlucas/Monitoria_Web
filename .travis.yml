@@ -26,7 +26,7 @@ before_script:
     - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
 script:
- #  - python manage.py behave
+    - python manage.py behave
     - sonar-scanner 
 
 notifications:
