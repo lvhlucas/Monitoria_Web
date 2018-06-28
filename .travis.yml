@@ -30,10 +30,9 @@ before_script:
 
 script:
     - python manage.py behave
-    - sonar-scanner 
-    #> sonar.txt
-    #- sh breakingbuildsonar.sh sonar.txt $SONNAR_SENHA https://sonarcloud.io
-    #- rm sonar.txt
+    - sonar-scanner > sonar.txt
+    - sh breakingbuildsonar.sh sonar.txt $SONNAR_SENHA https://sonarcloud.io
+    - rm sonar.txt
 
 notifications:
     slack: bsi-ifserra:zHx5D7zlr2t7MxbRzI5QZ74e
