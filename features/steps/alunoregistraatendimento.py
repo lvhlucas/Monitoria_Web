@@ -31,5 +31,7 @@ def step_impl(context):
     context.browser.find_element_by_name('submit').click()
     print('stp2', context.browser.current_url)
 
-
+@then(u'O monitor é redirecionado para a home page')
+def step_impl(context):
+    assert context.browser.current_url.endswith('/home/')
 
